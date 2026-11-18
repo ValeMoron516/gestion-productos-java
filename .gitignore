@@ -1,0 +1,7 @@
+/target/
+.env
+*.class
+.vscode/.classpath
+.vscode/.project
+/app/
+/lib/

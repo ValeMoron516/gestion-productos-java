@@ -1,0 +1,39 @@
+name: Compilacion Java
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Verificar herramientas
+        run: |
+          java -version
+          mvn -version
+
+      - name: Compilar con Maven
+        run: mvn -B -DskipTests package
+
+      - name: Guardar aplicacion compilada
+        uses: actions/upload-artifact@v4
+        with:
+          name: GestionProductos
+          path: target/*.jar
+          if-no-files-found: error
