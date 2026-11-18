@@ -24,7 +24,7 @@ public final class VentanaLogin extends JFrame {
         setMinimumSize(new Dimension(430, 380));
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
-        add(EstiloSwing.cabecera("Gestión de Productos", "Acceso mediante PIN personal"), BorderLayout.NORTH);
+        add(EstiloSwing.cabecera("Gestión de Productos", "Acceso mediante PIN personal - Unidad 7"), BorderLayout.NORTH);
 
         JPanel contenido = EstiloSwing.panel();
         contenido.setLayout(new BoxLayout(contenido, BoxLayout.Y_AXIS));
